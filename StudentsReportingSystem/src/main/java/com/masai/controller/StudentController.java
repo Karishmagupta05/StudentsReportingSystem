@@ -62,8 +62,8 @@ public class StudentController {
     		
     	total = total / count;
     		
-    	total = total * 100 / 300;
-    		
+    	total = total * 100;
+    	total=total/300;	
     		
     	model.addAttribute("per", total);
     	return "percent";
@@ -76,13 +76,12 @@ public class StudentController {
     	public String avgMarks(Model model, @RequestParam String sub) {
         	
             List<Student> list = new ArrayList<>();
-    		Iterable<Student> itr = sRepo.findAll();
+    		Iterable<Student> i1 = sRepo.findAll();
         
             
             int count = 0;
     		int total = 0;
-    		
-    		itr.forEach(list::add);
+    		i1.forEach(list::add);
     		for (Student s1 : list) {
     			
     		
